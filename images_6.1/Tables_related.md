@@ -1,8 +1,8 @@
 # Tables for contex for figure 6.0.png
 
-Tables below are part of context of Picture 6.0 Those contain information that join with file:  will helpful to create an AI oriented information.
+Tables below are part of context of Figure 6.0 Those contain information that join with file will helpful to create an AI oriented information.
 
-![Picture 6.0](6.0.png)
+![Figure 6.0](6.0.png)
 
 | TEST        | S1     |
 |-------------|--------|
@@ -19,6 +19,13 @@ Tables below are part of context of Picture 6.0 Those contain information that j
 
 
 # Tables for contex for figure 6.1.png
+
+Tables below are part of context of Figures 6.1 Those contain information that join with file  will helpful to create an AI oriented information.
+
+![Figure 6.1-a](6.1-a.png)
+![Figure 6.1-b](6.1-b.png)
+![Figure 6.1-c](6.1-c.png)
+![Figure 6.1-d](6.1-d.png)
 
 ## 5.6 Timing Requirements: TA = -40°C to +85°C
 
@@ -90,7 +97,7 @@ over recommended operating free-air temperature range, TA = -40°C to +85°C, CL
 | tpd        | CLK            | Q             | VCC = 5V ± 0.5V    |   1.1 |   3.8 | ns     |
 
 
-> NOTES: 
+> NOTES for figures 6.1-a to 6.1-d: 
     - CL includes probe and jig capacitance. 
     - Waveform 1 is for an output with internal conditions such that the output is low, except when disabled by the output control. Waveform 2 is for an output with internal conditions such that the output is high, except when disabled by the output control.
     - All input pulses are supplied by generators having the following characteristics: PRR £ 10 MHz, Z = 50 W. O
