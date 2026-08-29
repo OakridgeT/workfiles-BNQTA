@@ -1,3 +1,23 @@
+# Tables for contex for figure 6.0.png
+
+Tables below are part of context of picture 6.0.png. Those contain information that join with file: !(/6.0.png) will helpful to create an AI oriented information.
+
+| TEST        | S1     |
+|-------------|--------|
+| tPLH / tPHL | Open   |
+| tPLZ / tPZL | V LOAD |
+| tPHZ / tPZH | GND    |
+
+|  VCC           | VI INPUTS   | tr / tf INPUTS |  VM | VLOAD | CL |  RL | VD |
+|----------------|-------------|----------------|-----|-------|----|-----|----|
+| 1.8 V ± 0.15 V | V CC     | £2 ns    | V CC /2 | 2 × V CC | 15 pF | 1MW | 0.15 V |
+| 2.5 V ± 0.2 V  | V CC     | £2 ns    | V CC /2 | 2 × V CC | 15 pF | 1MW | 0.15 V |
+| 3.3 V ± 0.3 V  | 3 V      | £2.5 ns  | 1.5 V   | 6 V      | 15 pF | 1MW | 0.3 V  |
+| 5 V ± 0.5 V    | V CC     | £2.5 ns  | V CC /2 | 2 × V CC | 15 pF | 1MW | 0.3 V  |
+
+
+# Tables for contex for figure 6.1.png
+
 ## 5.6 Timing Requirements: TA = -40°C to +85°C
 
 over recommended operating free-air temperature range, TA = -40°C to +85°C (unless otherwise noted) (see Figure 6.1 a, b, c y d)
@@ -79,15 +99,3 @@ over recommended operating free-air temperature range, TA = -40°C to +85°C, CL
     - All parameters and waveforms are not applicable to all devices.
 
 
-| TEST        | S1     |
-|-------------|--------|
-| tPLH / tPHL | Open   |
-| tPLZ / tPZL | V LOAD |
-| tPHZ / tPZH | GND    |
-
-|  VCC           | VI INPUTS   | tr / tf INPUTS |  VM | VLOAD | CL |  RL | VD |
-|----------------|-------------|----------------|-----|-------|----|-----|----|
-| 1.8 V ± 0.15 V | V CC     | £2 ns    | V CC /2 | 2 × V CC | 15 pF | 1MW | 0.15 V |
-| 2.5 V ± 0.2 V  | V CC     | £2 ns    | V CC /2 | 2 × V CC | 15 pF | 1MW | 0.15 V |
-| 3.3 V ± 0.3 V  | 3 V      | £2.5 ns  | 1.5 V   | 6 V      | 15 pF | 1MW | 0.3 V  |
-| 5 V ± 0.5 V    | V CC     | £2.5 ns  | V CC /2 | 2 × V CC | 15 pF | 1MW | 0.3 V  |
