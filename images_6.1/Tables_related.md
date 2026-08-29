@@ -1,6 +1,8 @@
 # Tables for contex for figure 6.0.png
 
-Tables below are part of context of picture 6.0.png. Those contain information that join with file: ![image6](6.0.png) will helpful to create an AI oriented information.
+Tables below are part of context of Picture 6.0 Those contain information that join with file:  will helpful to create an AI oriented information.
+
+![Picture 6.0](6.0.png)
 
 | TEST        | S1     |
 |-------------|--------|
