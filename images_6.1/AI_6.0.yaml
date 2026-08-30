@@ -1,0 +1,73 @@
+schema_version: "1.0"
+ai_orientation:
+  purpose: "Machine-readable semantic representation of Figure 6.0 and its associated test conditions."
+  source_markdown: "Tables_related.md"
+  source_image: "6.0.png"
+  interpretation_priority:
+    - "Use this YAML for parameter meaning, test configuration, and numeric conditions."
+    - "Use the PNG for visual topology, switch position, signal paths, and waveform geometry."
+    - "Do not infer unspecified electrical values from the image alone."
+figure:
+  id: "6.0"
+  type: "timing_test_circuit"
+  role: "Defines the measurement configuration used for propagation, enable, and disable timing measurements."
+test_selection:
+  switch: "S1"
+  modes:
+    propagation_delay:
+      parameters: ["tPLH", "tPHL"]
+      S1: "Open"
+      load_connection: "Not selected by S1; use the propagation-delay load condition shown in the figure."
+    disable_low_to_high_impedance:
+      parameters: ["tPLZ", "tPZL"]
+      S1: "VLOAD"
+    disable_high_to_high_impedance:
+      parameters: ["tPHZ", "tPZH"]
+      S1: "GND"
+equivalent_parameters:
+  tPLH: "tpd"
+  tPHL: "tpd"
+  tPLZ: "tdis"
+  tPHZ: "tdis"
+  tPZL: "ten"
+  tPZH: "ten"
+load_conditions:
+  common:
+    CL: "15 pF"
+    RL: "1 MΩ"
+  by_vcc:
+    - VCC: "1.8 V ± 0.15 V"
+      VI_INPUTS: "VCC"
+      tr_tf_INPUTS: "≤2 ns"
+      VM: "VCC/2"
+      VLOAD: "2 × VCC"
+      VD: "0.15 V"
+    - VCC: "2.5 V ± 0.2 V"
+      VI_INPUTS: "VCC"
+      tr_tf_INPUTS: "≤2 ns"
+      VM: "VCC/2"
+      VLOAD: "2 × VCC"
+      VD: "0.15 V"
+    - VCC: "3.3 V ± 0.3 V"
+      VI_INPUTS: "3 V"
+      tr_tf_INPUTS: "≤2.5 ns"
+      VM: "1.5 V"
+      VLOAD: "6 V"
+      VD: "0.3 V"
+    - VCC: "5 V ± 0.5 V"
+      VI_INPUTS: "VCC"
+      tr_tf_INPUTS: "≤2.5 ns"
+      VM: "VCC/2"
+      VLOAD: "2 × VCC"
+      VD: "0.3 V"
+semantic_rules:
+  - "S1=Open selects propagation-delay measurement conditions for tPLH/tPHL."
+  - "S1=VLOAD selects output enable/disable measurements associated with tPLZ/tPZL."
+  - "S1=GND selects output enable/disable measurements associated with tPHZ/tPZH."
+  - "CL includes probe and jig capacitance."
+  - "The output is measured one transition at a time."
+  - "Do not assume every timing parameter applies to every device."
+data_quality:
+  notes:
+    - "The source Markdown contains OCR-like artifacts; this YAML normalizes obvious unit notation such as 1MW to 1 MΩ and ≤2 ns where context supports it."
+    - "The 5 V condition is preserved as written in the Figure 6.0 context."
