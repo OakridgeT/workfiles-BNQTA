@@ -1,0 +1,46 @@
+schema_version: "1.0"
+ai_orientation:
+  purpose: "Machine-readable semantic representation of Figure 6.1-a."
+  source_markdown: "Tables_related.md"
+  source_image: "6.1-a.png"
+  image_role: "Timing waveform; use the PNG to resolve exact waveform geometry and reference markers."
+  interpretation_rule: "The YAML defines parameter semantics and numerical limits; the PNG defines the visual relationship between CLK, data, and timing markers."
+figure:
+  id: "6.1-a"
+  section: "5.6"
+  temperature_range: "TA = -40°C to +85°C"
+  type: "timing_waveform"
+parameters:
+  fclock:
+    definition: "Clock frequency"
+    max: 160
+    unit: "MHz"
+  tw:
+    definition: "Pulse duration, CLK high or low"
+    min: 2.5
+    unit: "ns"
+  tsu:
+    definition: "Setup time before CLK rising edge"
+    unit: "ns"
+    data_high_min_by_vcc: {"1.8V": 2.3, "2.5V": 1.5, "3.3V": 1.3, "5.5V": 1.1}
+    data_low_min_by_vcc: {"1.8V": 2.5, "2.5V": 1.5, "3.3V": 1.3, "5.5V": 1.1}
+  th:
+    definition: "Hold time, data after CLK rising edge"
+    unit: "ns"
+    min_by_vcc: {"1.8V": 0.0, "2.5V": 0.2, "3.3V": 0.9, "5.5V": 0.4}
+measurement_semantics:
+  reference_event: "CLK rising edge"
+  setup_interval: "Data transition must occur at least tsu before the reference CLK rising edge."
+  hold_interval: "Data must remain valid for at least th after the reference CLK rising edge."
+conditions:
+  VCC: ["1.8 V ± 0.15 V", "2.5 V ± 0.2 V", "3.3 V ± 0.3 V", "5.5 V ± 0.5 V"]
+  temperature: "-40°C to +85°C"
+  input_transition: "See Tables_related.md; source contains ≤2 ns or ≤2.5 ns conditions depending on VCC."
+semantic_rules:
+  - "Do not interpret tsu as a propagation delay."
+  - "Do not interpret th as the width of the CLK pulse."
+  - "Use the rising CLK edge as the timing reference for tsu and th."
+  - "The exact waveform labels and graphical marker placement must be taken from 6.1-a.png."
+source_notes:
+  - "The source Markdown associates Figures 6.1-a through 6.1-d with Sections 5.6 and 5.7."
+  - "OCR artifacts in the source table should not be treated as independent electrical specifications."
