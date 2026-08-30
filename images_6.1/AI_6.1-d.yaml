@@ -1,0 +1,76 @@
+schema_version: "1.0"
+ai_orientation:
+  purpose: "Machine-readable semantic representation of Figure 6.1-d."
+  source_markdown: "Tables_related.md"
+  source_image: "6.1-d.png"
+  image_role: "Timing waveform associated with switching characteristics and tri-state output behavior."
+  interpretation_rule: "The PNG is authoritative for the exact visual waveform sequence. This YAML supplies semantic parameter relationships and test conditions."
+figure:
+  id: "6.1-d"
+  type: "switching_timing_waveform"
+  temperature_range: "TA = -40°C to +85°C"
+  load_condition:
+    CL: "15 pF"
+parameters:
+  tPLH:
+    alias: "tpd"
+    definition: "Propagation delay for output transition from low to high."
+    unit: "ns"
+  tPHL:
+    alias: "tpd"
+    definition: "Propagation delay for output transition from high to low."
+    unit: "ns"
+  tPLZ:
+    alias: "tdis"
+    definition: "Delay associated with output transition from low state toward high impedance when disabled."
+    unit: "ns"
+  tPHZ:
+    alias: "tdis"
+    definition: "Delay associated with output transition from high state toward high impedance when disabled."
+    unit: "ns"
+  tPZL:
+    alias: "ten"
+    definition: "Enable timing associated with transition from high impedance toward low."
+    unit: "ns"
+  tPZH:
+    alias: "ten"
+    definition: "Enable timing associated with transition from high impedance toward high."
+    unit: "ns"
+  fmax:
+    definition: "Maximum clock frequency"
+    min: 160
+    unit: "MHz"
+    by_vcc: ["1.8 V ± 0.15 V", "2.5 V ± 0.2 V", "3.3 V ± 0.3 V", "5 V ± 0.5 V"]
+propagation_delay_values:
+  tpd:
+    unit: "ns"
+    by_vcc:
+      "1.8V": {min: 3.0, max: 9.1}
+      "2.5V": {min: 1.5, max: 6.0}
+      "3.3V": {min: 1.3, max: 4.2}
+      "5V": {min: 1.1, max: 3.8}
+measurement_semantics:
+  threshold_reference: "Use the voltage reference levels shown in the waveform/test circuit."
+  output_states: ["LOW", "HIGH", "HIGH_IMPEDANCE"]
+  transition_classes:
+    - "input-to-output propagation"
+    - "output-disable"
+    - "output-enable"
+conditions:
+  CL: "15 pF"
+  temperature: "-40°C to +85°C"
+  input_generator:
+    PRR: "≤10 MHz"
+    source_impedance: "50 Ω"
+semantic_rules:
+  - "tPLH/tPHL must be interpreted as tpd."
+  - "tPLZ/tPHZ must be interpreted as tdis."
+  - "tPZL/tPZH must be interpreted as ten."
+  - "High impedance is a distinct output state and must not be treated as logic HIGH."
+  - "The output is measured one transition at a time."
+  - "Use the PNG to identify the exact waveform variant represented by Figure 6.1-d."
+source_notes:
+  - "The source notes state that waveform 1 represents an output internally low except when disabled, and waveform 2 represents an output internally high except when disabled."
+  - "CL includes probe and jig capacitance."
+  - "All parameters and waveforms are not necessarily applicable to all devices."
+  - "The source Markdown contains OCR artifacts; validate authoritative numeric values against the original datasheet before using them as design limits."
