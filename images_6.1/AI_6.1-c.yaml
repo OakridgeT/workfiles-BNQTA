@@ -1,0 +1,58 @@
+schema_version: "1.0"
+ai_orientation:
+  purpose: "Machine-readable semantic representation of Figure 6.1-c."
+  source_markdown: "Tables_related.md"
+  source_image: "6.1-c.png"
+  image_role: "Timing waveform associated with the switching/timing characteristics in Sections 5.6-5.8."
+  interpretation_rule: "Use the PNG for exact waveform topology and marker placement; use this YAML and Tables_related.md for parameter definitions and limits."
+figure:
+  id: "6.1-c"
+  type: "switching_timing_waveform"
+  temperature_ranges:
+    - "TA = -40°C to +85°C"
+    - "TA = -40°C to +125°C"
+parameters:
+  fclock:
+    definition: "Clock frequency"
+    max: 160
+    unit: "MHz"
+  tw:
+    definition: "Pulse duration, CLK high or low"
+    min: 2.5
+    unit: "ns"
+  tpd:
+    definition: "Propagation delay from input transition to output transition"
+    aliases: ["tPLH", "tPHL"]
+    unit: "ns"
+    min_max_by_vcc:
+      "1.8V": {min: 3.0, max: 9.1}
+      "2.5V": {min: 1.5, max: 6.0}
+      "3.3V": {min: 1.3, max: 4.2}
+      "5V": {min: 1.1, max: 3.8}
+  tdis:
+    definition: "Output disable timing"
+    aliases: ["tPLZ", "tPHZ"]
+    unit: "ns"
+  ten:
+    definition: "Output enable timing"
+    aliases: ["tPZL", "tPZH"]
+    unit: "ns"
+measurement_semantics:
+  propagation_delay: "Measure between the specified input transition and the corresponding output transition at the waveform reference levels."
+  disable_enable: "For tri-state behavior, distinguish transition to high-impedance from transition out of high-impedance."
+conditions:
+  switching_characteristics:
+    temperature: "-40°C to +85°C"
+    CL: "15 pF"
+  timing_requirements:
+    temperature: "-40°C to +125°C"
+  VCC: ["1.8 V ± 0.15 V", "2.5 V ± 0.2 V", "3.3 V ± 0.3 V", "5 V ± 0.5 V"]
+semantic_rules:
+  - "tPLH and tPHL are propagation-delay measurements and are equivalent to tpd."
+  - "tPLZ and tPHZ are disable timing and are equivalent to tdis."
+  - "tPZL and tPZH are enable timing and are equivalent to ten."
+  - "Do not assume tdis or ten limits unless they are explicitly present in the applicable device table."
+  - "Use the PNG to determine which polarity and transition are depicted in this figure."
+source_notes:
+  - "The source notes explicitly define tPLZ/tPHZ=tdis, tPZL/tPZH=ten, and tPLH/tPHL=tpd."
+  - "The source Markdown has an inconsistency between 5.6/5.7 and 5.8 regarding the 5 V/5.5 V notation; preserve the table-specific value rather than silently merging them."
