@@ -1,0 +1,49 @@
+schema_version: "1.0"
+ai_orientation:
+  purpose: "Machine-readable interpretation metadata for Figure 6.2-d."
+  source_markdown: "Tables_related.md"
+  source_image: "6.2-d.png"
+figure:
+  id: "6.2-d"
+  type: "timing_waveform"
+  title: "VOLTAGE WAVEFORMS — ENABLE AND DISABLE TIMES, LOW- AND HIGH-LEVEL ENABLING"
+  parameters: ["tPLZ", "tPZL", "tPHZ", "tPZH"]
+visual_semantics:
+  waveform_1: "Output is internally low except when disabled by the output control."
+  waveform_2: "Output is internally high except when disabled by the output control."
+  states: ["LOW", "HIGH", "HIGH-Z"]
+  visual_grounding: "Use the PNG to identify output-control transition, output transition, high-impedance interval, polarity, and timing arrows."
+timing:
+  disable:
+    tPLZ:
+      definition: "Disable timing for a low output transitioning toward high impedance."
+      equivalent: "tdis"
+    tPHZ:
+      definition: "Disable timing for a high output transitioning toward high impedance."
+      equivalent: "tdis"
+  enable:
+    tPZL:
+      definition: "Enable timing from high impedance toward the low output state."
+      equivalent: "ten"
+    tPZH:
+      definition: "Enable timing from high impedance toward the high output state."
+      equivalent: "ten"
+conditions:
+  switch_selection:
+    disable_low_or_enable_low: "S1 = VLOAD"
+    disable_high_or_enable_high: "S1 = GND"
+  load_capacitance: ["30 pF", "50 pF"]
+  temperature_ranges: ["-40°C to +85°C", "-40°C to +125°C"]
+measurement_rules:
+  - "Waveform 1 represents an output normally low except while disabled."
+  - "Waveform 2 represents an output normally high except while disabled."
+  - "tPLZ and tPHZ are equivalent to tdis."
+  - "tPZL and tPZH are equivalent to ten."
+  - "Outputs are measured one at a time, with one transition per measurement."
+  - "CL includes probe and jig capacitance."
+ai_interpretation_rules:
+  - "Identify whether the output is normally low or normally high before selecting the timing parameter."
+  - "Recognize high impedance as the third output state, not as an analog voltage level."
+  - "For disable measurements, identify the control transition and the subsequent entry into high impedance."
+  - "For enable measurements, identify the exit from high impedance and the resulting valid output state."
+  - "Use the PNG for visual state transitions and the tables for guaranteed numerical limits."
