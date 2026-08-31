@@ -1,0 +1,75 @@
+schema_version: "1.1"
+ai_orientation:
+  purpose: "Machine-readable semantic context for Figure 6.2 LOAD CIRCUIT and Figures 6.2-a through 6.2-d."
+  source_markdown: "Tables_related.md"
+  source_verified: true
+  visual_sources:
+    - "6.2.png"
+    - "6.2-a.png"
+    - "6.2-b.png"
+    - "6.2-c.png"
+    - "6.2-d.png"
+figure:
+  id: "6.2"
+  title: "LOAD CIRCUIT"
+  type: "timing_test_circuit"
+test_selection:
+  - timing_parameters: ["tPLH", "tPHL"]
+    S1: "Open"
+  - timing_parameters: ["tPLZ", "tPZL"]
+    S1: "VLOAD"
+  - timing_parameters: ["tPHZ", "tPZH"]
+    S1: "GND"
+conditions:
+  temperature_range: "-40°C to +85°C for Table 5.9; -40°C to +125°C for Table 5.10"
+  loads:
+    - VCC: "1.8 V ± 0.15 V"
+      VI_INPUT: "VCC"
+      tr_tf_INPUT: "≤2 ns"
+      VM: "VCC/2"
+      VLOAD: "2 × VCC"
+      CL: "30 pF"
+      RL: "1 kΩ"
+      VD: "0.15 V"
+    - VCC: "2.5 V ± 0.2 V"
+      VI_INPUT: "VCC"
+      tr_tf_INPUT: "≤2 ns"
+      VM: "VCC/2"
+      VLOAD: "2 × VCC"
+      CL: "30 pF"
+      RL: "500 Ω"
+      VD: "0.15 V"
+    - VCC: "3.3 V ± 0.3 V"
+      VI_INPUT: "3 V"
+      tr_tf_INPUT: "≤2.5 ns"
+      VM: "1.5 V"
+      VLOAD: "6 V"
+      CL: "50 pF"
+      RL: "500 Ω"
+      VD: "0.3 V"
+    - VCC: "5 V ± 0.5 V"
+      VI_INPUT: "VCC"
+      tr_tf_INPUT: "≤2.5 ns"
+      VM: "VCC/2"
+      VLOAD: "2 × VCC"
+      CL: "50 pF"
+      RL: "500 Ω"
+      VD: "0.3 V"
+related_figures:
+  - "6.2-a"
+  - "6.2-b"
+  - "6.2-c"
+  - "6.2-d"
+semantic_rules:
+  - "Use the circuit image to interpret S1 and the load configuration; use the tables for numerical test conditions."
+  - "CL includes probe and jig capacitance."
+  - "Outputs are measured one at a time, with one transition per measurement."
+  - "Waveform 1 represents an output internally driven low except when disabled by output control."
+  - "Waveform 2 represents an output internally driven high except when disabled by output control."
+  - "tPLZ and tPHZ are the same as tdis."
+  - "tPZL and tPZH are the same as ten."
+  - "tPLH and tPHL are the same as tpd."
+  - "All parameters and waveforms are not applicable to all devices."
+source_integrity:
+  note: "The source Tables_related.md was user-verified and is treated as the authoritative contextual source."
+  preserve_original_notation: true
