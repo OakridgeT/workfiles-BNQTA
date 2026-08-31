@@ -1,0 +1,37 @@
+schema_version: "1.1"
+ai_orientation:
+  purpose: "Machine-readable interpretation of Figure 6.1-a."
+  source_markdown: "Tables_related.md"
+  source_image: "6.1-a.png"
+figure:
+  id: "6.1-a"
+  title: "VOLTAGE WAVEFORMS — PULSE DURATION"
+  type: "timing_waveform"
+  timing_parameter: "tw"
+visual_interpretation:
+  purpose: "Shows the high or low pulse duration of CLK."
+  measure: "Pulse width of CLK at the applicable voltage reference level."
+associated_requirements:
+  parameter: "tw"
+  definition: "Pulse duration, CLK high or low"
+  unit: "ns"
+  min_by_vcc:
+    "1.8 V ± 0.15 V": 2.5
+    "2.5 V ± 0.2 V": 2.5
+    "3.3 V ± 0.3 V": 2.5
+    "5.5 V ± 0.5 V": 2.5
+frequency_requirement:
+  parameter: "fclock"
+  max: 160
+  unit: "MHz"
+  vcc: ["1.8 V ± 0.15 V", "2.5 V ± 0.2 V", "3.3 V ± 0.3 V", "5.5 V ± 0.5 V"]
+test_context:
+  temperature_ranges: ["-40°C to +85°C", "-40°C to +125°C"]
+  switching_characteristics_load: "CL = 15 pF"
+measurement_rules:
+  - "Use the PNG for waveform geometry and threshold locations."
+  - "tw applies to CLK high or low pulse duration."
+  - "Do not confuse tw with tpd, tsu, or th."
+  - "All parameters and waveforms are not necessarily applicable to all devices."
+source_integrity:
+  verified_by_user: true
