@@ -2,7 +2,8 @@
 
 Tables below are part of context of Figure 6.0 Those contain information that join with file will helpful to create an AI oriented information.
 
-![Figure 6.0](6.0.png)
+**Figure 6.0 LOAD CIRCUIT**
+![LOAD CIRCUIT](6.0.png)
 
 | TEST        | S1     |
 |-------------|--------|
@@ -12,24 +13,33 @@ Tables below are part of context of Figure 6.0 Those contain information that jo
 
 |  VCC           | VI INPUTS   | tr / tf INPUTS |  VM | VLOAD | CL |  RL | VD |
 |----------------|-------------|----------------|-----|-------|----|-----|----|
-| 1.8 V ± 0.15 V | V CC     | £2 ns    | V CC /2 | 2 × V CC | 15 pF | 1MW | 0.15 V |
-| 2.5 V ± 0.2 V  | V CC     | £2 ns    | V CC /2 | 2 × V CC | 15 pF | 1MW | 0.15 V |
-| 3.3 V ± 0.3 V  | 3 V      | £2.5 ns  | 1.5 V   | 6 V      | 15 pF | 1MW | 0.3 V  |
-| 5 V ± 0.5 V    | V CC     | £2.5 ns  | V CC /2 | 2 × V CC | 15 pF | 1MW | 0.3 V  |
+| 1.8 V ± 0.15 V | VCC     | ≤2 ns    | V CC /2 | 2 × VCC | 15 pF | 1 MΩ | 0.15 V |
+| 2.5 V ± 0.2 V  | VCC     | ≤2 ns    | V CC /2 | 2 × VCC | 15 pF | 1 MΩ | 0.15 V |
+| 3.3 V ± 0.3 V  | 3V      | ≤2.5 ns  | 1.5 V   | 6V      | 15 pF | 1 MΩ | 0.3 V  |
+| 5 V ± 0.5 V    | VCC     | ≤2.5 ns  | V CC /2 | 2 × VCC | 15 pF | 1 MΩ | 0.3 V  |
 
 
 # Tables for contex for figure 6.1.png
 
 Tables below are part of context of Figures 6.1 Those contain information that join with file  will helpful to create an AI oriented information.
 
-![Figure 6.1-a](6.1-a.png)
-![Figure 6.1-b](6.1-b.png)
-![Figure 6.1-c](6.1-c.png)
-![Figure 6.1-d](6.1-d.png)
+**Figure 6.1-a VOLTAGE WAVEFORMS PULSE DURATION**
+![VOLTAGE WAVEFORMS PULSE DURATION](6.1-a.png)
+
+**Figure 6.1-b VOLTAGE WAVEFORMS PROPAGATION DELAY TIMES INVERTING AND NONINVERTING OUTPUTS**
+![VOLTAGE WAVEFORMS PROPAGATION DELAY TIMES INVERTING AND NONINVERTING OUTPUTS*](6.1-b.png)
+
+**Figure 6.1-c VOLTAGE WAVEFORMS SETUP AND HOLD TIMES**
+![VOLTAGE WAVEFORMS SETUP AND HOLD TIMES*](6.1-c.png)
+
+**Figure 6.1-d VOLTAGE WAVEFORMS ENABLE AND DISABLE TIMES LOW- AND HIGH-LEVEL ENABLING**
+![VOLTAGE WAVEFORMS ENABLE AND DISABLE TIMES LOW- AND HIGH-LEVEL ENABLING](6.1-d.png)
 
 ## 5.6 Timing Requirements: TA = -40°C to +85°C
 
-over recommended operating free-air temperature range, TA = -40°C to +85°C (unless otherwise noted) (see Figure 6.1 a, b, c y d)
+over recommended operating free-air temperature range, TA = -40°C to +85°C (unless otherwise noted) (see Figures 6.1-a to 6.1-d)
+
+**Table 5.6**
 
 |         |                                 | VCC                |   MIN |   MAX | UNIT   |
 |---------|---------------------------------|---------------------|-------|-------|--------|
@@ -54,9 +64,12 @@ over recommended operating free-air temperature range, TA = -40°C to +85°C (un
 | th     | Hold time, data after CLK↑       | VCC = 3.3V ± 0.3V  |   0.9 |       | ns     |
 | th     | Hold time, data after CLK↑       | VCC = 5.5V ± 0.5V  |   0.4 |       | ns     |
 
+
 ## 5.7 Timing Requirements: TA = -40°C to +125°C
 
-over recommended operating free-air temperature range, TA = -40°C to +125°C (unless otherwise noted) (see Figure 6-1)
+over recommended operating free-air temperature range, TA = -40°C to +125°C (unless otherwise noted) (see Figures 6.1-a to 6.1-d)
+
+**Table 5.7**
 
 |                    |           | V CC                |   MIN |   MAX | UNIT   |
 |--------------------|-----------|---------------------|-------|-------|--------|
@@ -83,7 +96,9 @@ over recommended operating free-air temperature range, TA = -40°C to +125°C (u
 
 ## 5.8 Switching Characteristics: TA = -40°C to +85°C, CL = 15pF
 
-over recommended operating free-air temperature range, TA = -40°C to +85°C, CL = 15pF (unless otherwise noted) (see Figure 6-1)
+over recommended operating free-air temperature range, TA = -40°C to +85°C, CL = 15pF (unless otherwise noted) (see Figures 6.1-a to 6.1-d)
+
+**Table 5.8**
 
 | PARAMETER  | FROM (INPUT)   | TO (OUTPUT)   | VCC               |   MIN |   MAX | UNIT   |
 |------------|----------------|---------------|--------------------|-------|-------|--------|
