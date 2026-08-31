@@ -1,0 +1,46 @@
+schema_version: "1.1"
+ai_orientation:
+  purpose: "Machine-readable interpretation of Figure 6.1-c."
+  source_markdown: "Tables_related.md"
+  source_image: "6.1-c.png"
+figure:
+  id: "6.1-c"
+  title: "VOLTAGE WAVEFORMS — SETUP AND HOLD TIMES"
+  type: "timing_waveform"
+  timing_parameters: ["tsu", "th"]
+visual_interpretation:
+  purpose: "Shows the required data stability interval before and after the active CLK rising edge."
+parameter_definitions:
+  tsu: "Setup time before CLK rising edge."
+  th: "Hold time for data after CLK rising edge."
+requirements:
+  temperature_ranges: ["-40°C to +85°C", "-40°C to +125°C"]
+  tsu_data_high:
+    "1.8 V ± 0.15 V": 2.3
+    "2.5 V ± 0.2 V": 1.5
+    "3.3 V ± 0.3 V": 1.3
+    "5.5 V ± 0.5 V": 1.1
+    unit: "ns"
+  tsu_data_low:
+    "1.8 V ± 0.15 V": 2.5
+    "2.5 V ± 0.2 V": 1.5
+    "3.3 V ± 0.3 V": 1.3
+    "5.5 V ± 0.5 V": 1.1
+    unit: "ns"
+  th:
+    "1.8 V ± 0.15 V": 0
+    "2.5 V ± 0.2 V": 0.2
+    "3.3 V ± 0.3 V": 0.9
+    "5.5 V ± 0.5 V": 0.4
+    unit: "ns"
+clock_requirement:
+  fclock_max: 160
+  unit: "MHz"
+measurement_rules:
+  - "Use the PNG to identify the CLK rising edge and data transitions."
+  - "tsu is the interval immediately before the CLK rising edge during which data must satisfy the specified condition."
+  - "th is the interval immediately after the CLK rising edge during which data must remain valid."
+  - "Do not confuse tsu/th with propagation delay."
+  - "All parameters and waveforms are not necessarily applicable to all devices."
+source_integrity:
+  verified_by_user: true
