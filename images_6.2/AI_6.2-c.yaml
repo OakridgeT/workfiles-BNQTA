@@ -1,4 +1,4 @@
-schema_version: "1.1"
+schema_version: "1.2"
 ai_orientation:
   purpose: "Machine-readable interpretation context for Figure 6.2-c."
   source_markdown: "Tables_related.md"
@@ -13,6 +13,33 @@ parameters:
   primary: ["tsu", "th"]
   setup_time: "Time interval for which the input data must be stable before the active clock/reference transition."
   hold_time: "Time interval for which the input data must remain stable after the active clock/reference transition."
+waveform_geometry:
+  rows:
+    - name: "Timing Input (CLK)"
+      rails: {high: "V_I", low: "0 V"}
+      notation: "Segments away from the drawn transition are dashed, meaning 'not specified / don't care' — a standard timing-diagram convention. Only the single drawn transition is the defined reference edge; dashed segments must not be read as additional real transitions."
+      transitions:
+        - order: 1
+          direction: "rising"
+          crossing: "V_M"
+          role: "reference edge for both tsu and th"
+    - name: "Data Input"
+      rails: {high: "V_I", low: "0 V"}
+      transitions:
+        - order: 1
+          direction: "falling"
+          crossing: "V_M"
+          note: "Occurs before the CLK reference edge; marks the start of tsu."
+        - order: 2
+          direction: "rising"
+          crossing: "V_M"
+          note: "Occurs after the CLK reference edge; marks the end of th."
+  intervals:
+    - label: "tsu"
+      measured_between: ["Data Input transition 1 crossing", "Timing Input reference-edge crossing"]
+    - label: "th"
+      measured_between: ["Timing Input reference-edge crossing", "Data Input transition 2 crossing"]
+  data_state_at_capture: "As drawn, Data is LOW (0 V) throughout the interval spanned by tsu and th (it falls before the CLK edge and rises after it) — this specific drawing illustrates a 'Data low' capture case. A mirrored drawing (Data rising before the edge, falling after) would illustrate a 'Data high' capture case. Note: unlike images_6.1, Tables_related.md for images_6.2 does not provide separate 'Data high' / 'Data low' tsu rows or any numeric tsu/th limits — do not fabricate them; report tsu/th as not numerically specified in the available source."
 context:
   applicable_tables: ["5.9", "5.10"]
 visual_grounding:

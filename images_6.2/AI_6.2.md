@@ -23,6 +23,11 @@ The load configuration varies with VCC. The authoritative values are maintained 
 ## AI Visual Grounding
 Use the image to determine circuit topology and S1/load routing. Do not derive precise component values from image geometry; use the YAML/table context.
 
+## Circuit topology
+The "From Output Under Test" node feeds a shared junction with two parallel branches to ground: `CL` (load capacitance, see Note A) and a shunt `RL` (load resistance to ground). From that same junction, the signal continues in series through a **second, separate** resistor — also labeled `RL` — to switch `S1`, which selects one of three terminations: `V_LOAD`, `Open`, or `GND`.
+
+The schematic reuses the label `R_L` for two different resistors: one shunt (output node to ground) and one in series (junction to S1). The `RL` column in the electrical-conditions table (1 kΩ or 500 Ω depending on VCC) gives a single value; both resistors are physically distinct components in the same signal path — do not collapse them into a single resistor when describing the circuit.
+
 ## Relationship to Timing Figures
 - `6.2-a`: pulse duration (`tW`)
 - `6.2-b`: propagation delay (`tPLH`, `tPHL`, equivalent to `tpd`)

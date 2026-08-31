@@ -1,4 +1,4 @@
-schema_version: "1.1"
+schema_version: "1.2"
 ai_orientation:
   purpose: "Machine-readable interpretation context for Figure 6.2-a."
   source_markdown: "Tables_related.md"
@@ -12,6 +12,24 @@ figure:
 parameters:
   primary: "tW"
   definition: "Pulse duration represented by the time interval for which the waveform remains in its active state, according to the figure's threshold convention."
+waveform_geometry:
+  rows:
+    - name: "Input"
+      rails: {high: "V_I", low: "0 V"}
+      transitions:
+        - order: 1
+          direction: "falling"
+          crossing: "V_M"
+          note: "First V_M crossing; signal goes from V_I to 0 V."
+        - order: 2
+          direction: "rising"
+          crossing: "V_M"
+          note: "Second V_M crossing; signal returns from 0 V to V_I."
+  intervals:
+    - label: "tW"
+      measured_between: ["transition 1 crossing", "transition 2 crossing"]
+      note: "tW is the horizontal distance between the two V_M crossings. As drawn, the interval spans the LOW portion of the pulse. The identical measurement method — the time between two consecutive V_M crossings — applies symmetrically to the HIGH portion of the pulse (a rising crossing followed by a falling crossing), which is not separately illustrated in this figure."
+  numeric_limits_status: "Tables_related.md for images_6.2 does not provide a tW minimum/maximum table (unlike images_6.1's Tables 5.6/5.7). Do not fabricate a tW numeric limit for this device family; report it as not specified in the available source until a table is supplied."
 context:
   switching_characteristics: ["5.9", "5.10"]
   temperature_ranges: ["-40°C to +85°C", "-40°C to +125°C"]

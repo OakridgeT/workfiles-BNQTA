@@ -1,4 +1,4 @@
-schema_version: "1.1"
+schema_version: "1.2"
 ai_orientation:
   purpose: "Machine-readable interpretation context for Figure 6.2-d."
   source_markdown: "Tables_related.md"
@@ -14,9 +14,56 @@ parameters:
   disable: ["tPLZ", "tPHZ"]
   equivalent_enable: "ten"
   equivalent_disable: "tdis"
+switch_context:
+  tPZL_tPLZ: "S1 = VLOAD (both apply to Output Waveform 1), per Figure 6.2's test-selection table"
+  tPZH_tPHZ: "S1 = GND (both apply to Output Waveform 2), per Figure 6.2's test-selection table"
 waveform_semantics:
   waveform_1: "Output internally driven low except when disabled by output control."
   waveform_2: "Output internally driven high except when disabled by output control."
+waveform_geometry:
+  rows:
+    - name: "Output Control"
+      rails: {high: "V_I", low: "0 V"}
+      transitions:
+        - order: 1
+          direction: "falling"
+          crossing: "V_M"
+          role: "enable edge — starts tPZL (on Waveform 1) and tPZH (on Waveform 2) simultaneously, both measured from this same crossing"
+        - order: 2
+          direction: "rising"
+          crossing: "V_M"
+          role: "disable edge — starts tPLZ (on Waveform 1) and tPHZ (on Waveform 2) simultaneously, both measured from this same crossing"
+    - name: "Output Waveform 1"
+      note_ref: "Note B"
+      condition: "S1 = VLOAD"
+      levels: {disabled_high_z: "V_LOAD/2", enabled_low: "V_OL", disable_reference_line: "V_OL + V_D"}
+      transitions:
+        - order: 1
+          direction: "falling"
+          crossing: "V_M"
+          triggered_by: "Output Control transition 1 (enable edge)"
+          interval_label: "tPZL"
+        - order: 2
+          direction: "rising, asymptotic toward V_LOAD/2"
+          crossing: "reference line V_OL + V_D (NOT V_M — the output never cleanly crosses V_M on this transition)"
+          triggered_by: "Output Control transition 2 (disable edge)"
+          interval_label: "tPLZ"
+    - name: "Output Waveform 2"
+      note_ref: "Note B"
+      condition: "S1 = GND"
+      levels: {disabled_high_z: "approx. 0 V", enabled_high: "V_OH", disable_reference_line: "V_OH - V_D"}
+      transitions:
+        - order: 1
+          direction: "rising"
+          crossing: "V_M"
+          triggered_by: "Output Control transition 1 (enable edge)"
+          interval_label: "tPZH"
+        - order: 2
+          direction: "falling, asymptotic toward approx. 0 V"
+          crossing: "reference line V_OH - V_D (NOT V_M — the output never cleanly crosses V_M on this transition)"
+          triggered_by: "Output Control transition 2 (disable edge)"
+          interval_label: "tPHZ"
+  disambiguation: "tPZL and tPLZ are BOTH measured on Waveform 1 (S1=VLOAD); tPZH and tPHZ are BOTH measured on Waveform 2 (S1=GND). Do not pair tPZL with tPZH, or tPLZ with tPHZ — they belong to different S1 conditions and different waveform rows. The enable measurements (tPZL, tPZH) use the V_M crossing on the output row; the disable measurements (tPLZ, tPHZ) use the offset reference lines (V_OL+V_D / V_OH-V_D), because the output approaches its high-impedance level asymptotically instead of crossing V_M. V_D is the test-condition value defined per VCC in Figure 6.2's table (0.15 V or 0.3 V depending on VCC)."
 context:
   applicable_tables: ["5.9", "5.10"]
 visual_grounding:
