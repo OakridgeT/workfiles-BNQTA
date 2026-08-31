@@ -1,0 +1,66 @@
+schema_version: "1.1"
+ai_orientation:
+  purpose: "Machine-readable interpretation of Figure 6.0 LOAD CIRCUIT and its associated timing-test conditions."
+  source_markdown: "Tables_related.md"
+  source_image: "6.0.png"
+figure:
+  id: "6.0"
+  title: "LOAD CIRCUIT"
+  type: "timing_test_circuit"
+  visual_grounding: "Use 6.0.png for circuit topology, component/switch placement, and signal paths."
+test_selection:
+  - parameter_group: ["tPLH", "tPHL"]
+    switch_S1: "Open"
+  - parameter_group: ["tPLZ", "tPZL"]
+    switch_S1: "VLOAD"
+  - parameter_group: ["tPHZ", "tPZH"]
+    switch_S1: "GND"
+conditions:
+  - VCC: "1.8 V ± 0.15 V"
+    VI_inputs: "VCC"
+    input_tr_tf_max: "≤2 ns"
+    VM: "VCC/2"
+    VLOAD: "2 × VCC"
+    CL: "15 pF"
+    RL: "1 MΩ"
+    VD: "0.15 V"
+  - VCC: "2.5 V ± 0.2 V"
+    VI_inputs: "VCC"
+    input_tr_tf_max: "≤2 ns"
+    VM: "VCC/2"
+    VLOAD: "2 × VCC"
+    CL: "15 pF"
+    RL: "1 MΩ"
+    VD: "0.15 V"
+  - VCC: "3.3 V ± 0.3 V"
+    VI_inputs: "3 V"
+    input_tr_tf_max: "≤2.5 ns"
+    VM: "1.5 V"
+    VLOAD: "6 V"
+    CL: "15 pF"
+    RL: "1 MΩ"
+    VD: "0.3 V"
+  - VCC: "5 V ± 0.5 V"
+    VI_inputs: "VCC"
+    input_tr_tf_max: "≤2.5 ns"
+    VM: "VCC/2"
+    VLOAD: "2 × VCC"
+    CL: "15 pF"
+    RL: "1 MΩ"
+    VD: "0.3 V"
+parameter_mapping:
+  tPLH: "tpd"
+  tPHL: "tpd"
+  tPLZ: "tdis"
+  tPHZ: "tdis"
+  tPZL: "ten"
+  tPZH: "ten"
+measurement_rules:
+  - "Outputs are measured one at a time."
+  - "Use one transition per measurement."
+  - "CL includes probe and jig capacitance."
+  - "Do not infer unspecified values from the PNG."
+source_integrity:
+  verified_by_user: true
+  ocr_corrections_applied: true
+  note: "Values in this file follow the user-verified corrected Tables_related.md; do not reintroduce earlier OCR-normalization assumptions."
