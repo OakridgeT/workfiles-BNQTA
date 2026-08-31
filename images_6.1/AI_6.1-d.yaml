@@ -1,0 +1,36 @@
+schema_version: "1.1"
+ai_orientation:
+  purpose: "Machine-readable interpretation of Figure 6.1-d."
+  source_markdown: "Tables_related.md"
+  source_image: "6.1-d.png"
+figure:
+  id: "6.1-d"
+  title: "VOLTAGE WAVEFORMS — ENABLE AND DISABLE TIMES, LOW- AND HIGH-LEVEL ENABLING"
+  type: "timing_waveform"
+  timing_parameters: ["tPZL", "tPZH", "tPLZ", "tPHZ"]
+visual_interpretation:
+  purpose: "Shows output enable and disable timing for low- and high-level output control conditions."
+parameter_mapping:
+  tPZL: "ten"
+  tPZH: "ten"
+  tPLZ: "tdis"
+  tPHZ: "tdis"
+switch_context:
+  tPZL_tPZH: "S1 = VLOAD"
+  tPLZ_tPHZ: "S1 = VLOAD or GND according to the associated test condition in Figure 6.0"
+waveform_semantics:
+  waveform_1: "Output is internally low except when disabled by output control."
+  waveform_2: "Output is internally high except when disabled by output control."
+conditions:
+  CL: "15 pF"
+  RL: "1 MΩ"
+  temperature_ranges: ["-40°C to +85°C", "-40°C to +125°C"]
+measurement_rules:
+  - "Use the PNG to identify output-control transitions and output transition to or from the disabled state."
+  - "ten is represented by tPZL/tPZH."
+  - "tdis is represented by tPLZ/tPHZ."
+  - "Do not confuse enable/disable timing with propagation delay."
+  - "Outputs are measured one at a time, with one transition per measurement."
+  - "All parameters and waveforms are not necessarily applicable to all devices."
+source_integrity:
+  verified_by_user: true
