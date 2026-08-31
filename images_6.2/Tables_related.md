@@ -2,6 +2,7 @@
 
 Tables below are part of context of Figure 6.2 "LOAD CIRCUIT" Those contain information that join with file will helpful to create an AI oriented information.
 
+**Figure 6.2 LOAD CIRCUIT**
 ![LOAD CIRCUIT Figure 6.2](6.2.png)
 
 | TEST        | S1     |
@@ -10,22 +11,30 @@ Tables below are part of context of Figure 6.2 "LOAD CIRCUIT" Those contain info
 | tPLZ / tPZL | VLOAD |
 | tPHZ / tPZH | GND    |
 
-|  VCC           | VI INPUTS   | tr / tf INPUTS |  VM | VLOAD | CL |  RL | VD |
-|----------------|-------------|----------------|-----|-------|----|-----|----|
-| 1.8 V ± 0.15 V | VCC     | £2 ns    | VCC /2 | 2 × VCC | 30 pF | 1 kW | 0.15 V |
-| 2.5 V ± 0.2 V  | VCC     | £2 ns    | VCC /2 | 2 × VCC | 30 pF | 500 W | 0.15 V |
-| 3.3 V ± 0.3 V  | 3V      | £2.5 ns  | 1.5 V   | 6 V      | 50 pF | 500 W | 0.3 V  |
-| 5 V ± 0.5 V    | VCC     | £2.5 ns  | VCC /2 | 2 × VCC | 50 pF | 500 W | 0.3 V  |
+|  VCC           | VI INPUT   | tr / tf INPUT |  VM | VLOAD | CL |  RL | VD |
+|----------------|----------|----------|---------|----------|-------|------|--------|
+| 1.8 V ± 0.15 V | VCC     | ≤2 ns    | VCC /2 | 2 × VCC | 30 pF | 1 kΩ | 0.15 V |
+| 2.5 V ± 0.2 V  | VCC     | ≤2 ns    | VCC /2 | 2 × VCC | 30 pF | 500 Ω | 0.15 V |
+| 3.3 V ± 0.3 V  | 3V      | ≤2.5 ns  | 1.5 V   | 6V      | 50 pF | 500 Ω | 0.3 V  |
+| 5 V ± 0.5 V    | VCC     | ≤2.5 ns  | VCC /2 | 2 × VCC | 50 pF | 500 Ω | 0.3 V  |
 
 
 # Tables for contex for figure 6.2.png
 
 Tables below are part of context of Figures 6.2 Those contain information that join with file  will helpful to create an AI oriented information.
 
+**Figure 6.2-a VOLTAGE WAVEFORMS PULSE DURATION**
 ![VOLTAGE WAVEFORMS PULSE DURATION Figure 6.1-a](6.2-a.png)
+
+**Figure 6.2-b VOLTAGE WAVEFORMS PROPAGATION DELAY TIMES INVERTING AND NONINVERTING OUTPUTS**
 ![VOLTAGE WAVEFORMS PROPAGATION DELAY TIMES INVERTING AND NONINVERTING OUTPUTS Figure 6.1-b](6.2-b.png)
+
+**Figure 6.2-c VOLTAGE WAVEFORMS SETUP AND HOLD TIMES**
 ![VOLTAGE WAVEFORMS SETUP AND HOLD TIMES Figure 6.1-c](6.2-c.png)
+
+**Figure 6.2-d VOLTAGE WAVEFORMS ENABLE AND DISABLE TIMES LOW- AND HIGH-LEVEL ENABLING**
 ![VOLTAGE WAVEFORMS ENABLE AND DISABLE TIMES LOW- AND HIGH-LEVEL ENABLING Figure 6.1-d](6.2-d.png)
+
 
 ## 5.9 Switching Characteristics: TA = -40°C to +85°C, CL = 30pF or 50pF
 
