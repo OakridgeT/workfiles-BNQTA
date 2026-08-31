@@ -38,7 +38,7 @@ Tables below are part of context of Figures 6.2 Those contain information that j
 
 ## 5.9 Switching Characteristics: TA = -40°C to +85°C, CL = 30pF or 50pF
 
-over recommended operating free-air temperature range, TA = -40°C to +85°C, CL = 30pF or 50pF (unless otherwise noted) (see Figure 6-2)
+over recommended operating free-air temperature range, TA = -40°C to +85°C, CL = 30pF or 50pF (unless otherwise noted) (see Figures 6.2-a to 6.2-d)
 
 **Table 5.9**
 
@@ -56,7 +56,7 @@ over recommended operating free-air temperature range, TA = -40°C to +85°C, CL
 
 ## 5.10 Switching Characteristics: TA = -40°C to +125°C, CL = 30pF or 50pF
 
-over recommended operating free-air temperature range, TA = -40°C to +125°C, CL = 30pF or 50pF (unless otherwise noted) (see Figure 6-2)
+over recommended operating free-air temperature range, TA = -40°C to +125°C, CL = 30pF or 50pF (unless otherwise noted) (see Figures 6.2-a to 6.2-d)
 
 **Table 5.10**
 
