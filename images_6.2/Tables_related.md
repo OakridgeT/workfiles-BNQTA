@@ -3,6 +3,7 @@
 Tables below are part of context of Figure 6.2 "LOAD CIRCUIT" Those contain information that join with file will helpful to create an AI oriented information.
 
 **Figure 6.2 LOAD CIRCUIT**
+
 ![LOAD CIRCUIT Figure 6.2](6.2.png)
 
 | TEST        | S1     |
@@ -24,15 +25,22 @@ Tables below are part of context of Figure 6.2 "LOAD CIRCUIT" Those contain info
 Tables below are part of context of Figures 6.2 Those contain information that join with file  will helpful to create an AI oriented information.
 
 **Figure 6.2-a VOLTAGE WAVEFORMS PULSE DURATION**
+
 ![VOLTAGE WAVEFORMS PULSE DURATION Figure 6.1-a](6.2-a.png)
 
+
 **Figure 6.2-b VOLTAGE WAVEFORMS PROPAGATION DELAY TIMES INVERTING AND NONINVERTING OUTPUTS**
+
 ![VOLTAGE WAVEFORMS PROPAGATION DELAY TIMES INVERTING AND NONINVERTING OUTPUTS Figure 6.1-b](6.2-b.png)
 
+
 **Figure 6.2-c VOLTAGE WAVEFORMS SETUP AND HOLD TIMES**
+
 ![VOLTAGE WAVEFORMS SETUP AND HOLD TIMES Figure 6.1-c](6.2-c.png)
 
+
 **Figure 6.2-d VOLTAGE WAVEFORMS ENABLE AND DISABLE TIMES LOW- AND HIGH-LEVEL ENABLING**
+
 ![VOLTAGE WAVEFORMS ENABLE AND DISABLE TIMES LOW- AND HIGH-LEVEL ENABLING Figure 6.1-d](6.2-d.png)
 
 
