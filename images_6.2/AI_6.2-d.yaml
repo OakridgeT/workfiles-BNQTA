@@ -1,0 +1,29 @@
+schema_version: "1.1"
+ai_orientation:
+  purpose: "Machine-readable interpretation context for Figure 6.2-d."
+  source_markdown: "Tables_related.md"
+  source_verified: true
+  source_image: "6.2-d.png"
+figure:
+  id: "6.2-d"
+  title: "VOLTAGE WAVEFORMS — ENABLE AND DISABLE TIMES, LOW- AND HIGH-LEVEL ENABLING"
+  type: "timing_waveform"
+  timing_concept: "output enable and disable"
+parameters:
+  enable: ["tPZL", "tPZH"]
+  disable: ["tPLZ", "tPHZ"]
+  equivalent_enable: "ten"
+  equivalent_disable: "tdis"
+waveform_semantics:
+  waveform_1: "Output internally driven low except when disabled by output control."
+  waveform_2: "Output internally driven high except when disabled by output control."
+context:
+  applicable_tables: ["5.9", "5.10"]
+visual_grounding:
+  inspect: ["output-control transition", "output transition to LOW", "output transition to HIGH", "high-impedance interval", "reference thresholds"]
+semantic_rules:
+  - "tPZL and tPZH are the same as ten."
+  - "tPLZ and tPHZ are the same as tdis."
+  - "Use waveform 1 for the internally-low output case and waveform 2 for the internally-high output case."
+  - "Use the PNG for visual transition relationships and Tables_related.md for electrical test conditions."
+  - "Do not assume all four timing parameters apply to every device."
