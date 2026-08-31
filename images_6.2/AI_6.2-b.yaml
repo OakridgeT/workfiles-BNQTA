@@ -1,0 +1,26 @@
+schema_version: "1.1"
+ai_orientation:
+  purpose: "Machine-readable interpretation context for Figure 6.2-b."
+  source_markdown: "Tables_related.md"
+  source_verified: true
+  source_image: "6.2-b.png"
+figure:
+  id: "6.2-b"
+  title: "VOLTAGE WAVEFORMS — PROPAGATION DELAY TIMES INVERTING AND NONINVERTING OUTPUTS"
+  type: "timing_waveform"
+  timing_concept: "propagation delay"
+parameters:
+  primary: ["tPLH", "tPHL"]
+  equivalent_parameter: "tpd"
+  measurement_relation: "Measure propagation delay between the specified input and output reference transitions using the waveform thresholds shown in the image."
+conditions:
+  applicable_tables: ["5.9", "5.10"]
+  temperature_ranges: ["-40°C to +85°C", "-40°C to +125°C"]
+  vcc_values: ["1.8 V ± 0.15 V", "2.5 V ± 0.2 V", "3.3 V ± 0.3 V", "5 V ± 0.5 V"]
+visual_grounding:
+  inspect: ["input transition", "output transition", "rising/falling edge", "reference threshold", "time interval"]
+semantic_rules:
+  - "tPLH and tPHL are the same as tpd in the source notes."
+  - "Use the PNG to identify waveform polarity and reference transitions."
+  - "Use Tables_related.md for numerical minimum and maximum tpd values."
+  - "Do not assume a single tpd value applies across VCC or temperature conditions."
