@@ -1,0 +1,24 @@
+schema_version: "1.1"
+ai_orientation:
+  purpose: "Machine-readable interpretation context for Figure 6.2-c."
+  source_markdown: "Tables_related.md"
+  source_verified: true
+  source_image: "6.2-c.png"
+figure:
+  id: "6.2-c"
+  title: "VOLTAGE WAVEFORMS — SETUP AND HOLD TIMES"
+  type: "timing_waveform"
+  timing_concept: "setup and hold"
+parameters:
+  primary: ["tsu", "th"]
+  setup_time: "Time interval for which the input data must be stable before the active clock/reference transition."
+  hold_time: "Time interval for which the input data must remain stable after the active clock/reference transition."
+context:
+  applicable_tables: ["5.9", "5.10"]
+visual_grounding:
+  inspect: ["data input transition", "clock/reference transition", "setup interval", "hold interval", "reference thresholds"]
+semantic_rules:
+  - "Identify the active clock/reference edge from the PNG before interpreting tsu or th."
+  - "tsu precedes the active reference edge; th follows it."
+  - "Do not confuse setup/hold timing with propagation delay tpd."
+  - "Use the PNG for visual timing relationships and Tables_related.md for applicable electrical conditions."
