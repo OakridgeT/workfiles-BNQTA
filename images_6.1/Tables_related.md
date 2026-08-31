@@ -3,6 +3,7 @@
 Tables below are part of context of Figure 6.0 Those contain information that join with file will helpful to create an AI oriented information.
 
 **Figure 6.0 LOAD CIRCUIT**
+
 ![LOAD CIRCUIT](6.0.png)
 
 | TEST        | S1     |
@@ -24,16 +25,24 @@ Tables below are part of context of Figure 6.0 Those contain information that jo
 Tables below are part of context of Figures 6.1 Those contain information that join with file  will helpful to create an AI oriented information.
 
 **Figure 6.1-a VOLTAGE WAVEFORMS PULSE DURATION**
+
 ![VOLTAGE WAVEFORMS PULSE DURATION](6.1-a.png)
 
+
 **Figure 6.1-b VOLTAGE WAVEFORMS PROPAGATION DELAY TIMES INVERTING AND NONINVERTING OUTPUTS**
+
 ![VOLTAGE WAVEFORMS PROPAGATION DELAY TIMES INVERTING AND NONINVERTING OUTPUTS*](6.1-b.png)
 
+
 **Figure 6.1-c VOLTAGE WAVEFORMS SETUP AND HOLD TIMES**
+
 ![VOLTAGE WAVEFORMS SETUP AND HOLD TIMES*](6.1-c.png)
 
+
 **Figure 6.1-d VOLTAGE WAVEFORMS ENABLE AND DISABLE TIMES LOW- AND HIGH-LEVEL ENABLING**
+
 ![VOLTAGE WAVEFORMS ENABLE AND DISABLE TIMES LOW- AND HIGH-LEVEL ENABLING](6.1-d.png)
+
 
 ## 5.6 Timing Requirements: TA = -40°C to +85°C
 
