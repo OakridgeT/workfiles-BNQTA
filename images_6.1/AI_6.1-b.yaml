@@ -1,4 +1,4 @@
-schema_version: "1.1"
+schema_version: "1.2"
 ai_orientation:
   purpose: "Machine-readable interpretation of Figure 6.1-b."
   source_markdown: "Tables_related.md"
@@ -15,6 +15,46 @@ parameter_mapping:
   tPHL: "tpd"
   tPLH_meaning: "low-to-high output propagation transition"
   tPHL_meaning: "high-to-low output propagation transition"
+waveform_geometry:
+  rows:
+    - name: "Input"
+      rails: {high: "V_I", low: "0 V"}
+      transitions:
+        - order: 1
+          direction: "falling"
+          crossing: "V_M"
+        - order: 2
+          direction: "rising"
+          crossing: "V_M"
+    - name: "Output (upper row)"
+      role: "inverting output"
+      rails: {high: "V_OH", low: "V_OL"}
+      transitions:
+        - order: 1
+          direction: "rising"
+          crossing: "V_M"
+          triggered_by: "Input transition 1 (falling)"
+          interval_label: "tPLH"
+        - order: 2
+          direction: "falling"
+          crossing: "V_M"
+          triggered_by: "Input transition 2 (rising)"
+          interval_label: "tPHL"
+    - name: "Output (lower row)"
+      role: "noninverting output"
+      rails: {high: "V_OH", low: "V_OL"}
+      transitions:
+        - order: 1
+          direction: "falling"
+          crossing: "V_M"
+          triggered_by: "Input transition 1 (falling)"
+          interval_label: "tPHL"
+        - order: 2
+          direction: "rising"
+          crossing: "V_M"
+          triggered_by: "Input transition 2 (rising)"
+          interval_label: "tPLH"
+  disambiguation: "Both Output rows respond to the SAME pair of Input transitions but in OPPOSITE directions: the upper (inverting) output rises when the lower (noninverting) output falls, and vice versa. Which label applies (tPLH vs tPHL) is determined by the DIRECTION of the specific output transition being measured — rising output = tPLH, falling output = tPHL — not by row position or by the Input's own direction."
 switch_context:
   S1_for_propagation: "Open"
 switching_characteristics:

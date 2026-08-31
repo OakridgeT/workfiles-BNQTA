@@ -10,6 +10,11 @@
 ## AI visual-grounding instructions
 Use `6.0.png` for circuit topology, load components, VLOAD, and S1 position/function. Use the YAML for structured numerical conditions. Do not infer unspecified values from visual geometry.
 
+## Circuit topology
+The "From Output Under Test" node feeds a shared junction with two parallel branches to ground: `CL` (load capacitance, see Note A) and a shunt `RL` (load resistance to ground). From that same junction, the signal continues in series through a **second, separate** resistor — also labeled `RL` — to switch `S1`, which selects one of three terminations: `V_LOAD`, `Open`, or `GND`.
+
+The schematic reuses the label `R_L` for two different resistors: one shunt (output node to ground) and one in series (junction to S1). Both are 1 MΩ per the electrical-conditions table (only one `RL` value is given), but they are physically distinct components in the same signal path — do not collapse them into a single resistor when describing the circuit.
+
 ## Test selection
 | Timing group | S1 condition |
 |---|---|

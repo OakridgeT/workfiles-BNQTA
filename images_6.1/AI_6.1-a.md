@@ -12,6 +12,13 @@ This waveform defines the pulse-duration measurement for CLK when CLK is high or
 ## AI visual-grounding instructions
 Use the PNG to identify CLK, its high/low interval, voltage reference crossings, and measurement markers. Use `AI_6.1-a.yaml` for numeric limits. Do not infer numerical limits from pixel distances.
 
+## Waveform geometry (curves and intersections)
+The figure has a single "Input" curve referenced against two rails, `V_I` (high) and `0 V` (low), and crosses the threshold `V_M` exactly twice:
+1. **First crossing (falling):** the curve transitions from `V_I` down through `V_M` to `0 V`.
+2. **Second crossing (rising):** the curve transitions from `0 V` back up through `V_M` to `V_I`.
+
+`tw` is the horizontal distance between these two `V_M` crossings. As drawn, the interval spans the **low** portion of the pulse (`tw` for CLK low). The same measurement method — the time between two consecutive `V_M` crossings — applies symmetrically to the **high** portion of the pulse (`tw` for CLK high: a rising crossing followed by a falling crossing), which this figure does not draw separately; both cases share one definition and one minimum limit.
+
 ## Parameter
 `tw` = pulse duration, CLK high or low.
 

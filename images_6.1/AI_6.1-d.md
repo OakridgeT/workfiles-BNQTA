@@ -17,6 +17,13 @@ Use the PNG to identify output-control transitions, Q transitions, high-impedanc
 - `tPLZ` and `tPHZ` are equivalent to `tdis`.
 - Figure 6.0 associates `tPLZ/tPZL` with S1 = VLOAD and `tPHZ/tPZH` with S1 = GND.
 
+## Waveform geometry (curves and intersections)
+- **Output Control:** two crossings of `V_M` — falling (crossing 1, the *enable* edge) then rising (crossing 2, the *disable* edge).
+- **Output Waveform 1** (S1 = VLOAD): falls through `V_M` in step with the enable edge — this is `tPZL` — then rises asymptotically toward `V_LOAD/2`, measured against the reference line `V_OL + V_D` (not `V_M`, since the curve approaches the high-impedance level asymptotically rather than crossing it) in step with the disable edge — this is `tPLZ`.
+- **Output Waveform 2** (S1 = GND): rises through `V_M` in step with the enable edge — this is `tPZH` — then falls asymptotically toward ≈0 V, measured against the reference line `V_OH - V_D` in step with the disable edge — this is `tPHZ`.
+
+**tPZL and tPLZ are both measured on Waveform 1 (S1 = VLOAD); tPZH and tPHZ are both measured on Waveform 2 (S1 = GND).** Do not pair tPZL with tPZH or tPLZ with tPHZ — an earlier revision of `AI_6.1-d.yaml` made exactly that mistake; it has been corrected to match this figure and Figure 6.0's test-selection table.
+
 ## Waveform semantics
 - **Waveform 1:** output is internally low except when disabled by the output control.
 - **Waveform 2:** output is internally high except when disabled by the output control.

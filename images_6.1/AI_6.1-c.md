@@ -12,6 +12,14 @@ This waveform defines the data-validity intervals surrounding the active CLK ris
 ## AI visual-grounding instructions
 Use the PNG to identify the CLK rising edge, data waveform, transition direction, and setup/hold measurement markers. Use `AI_6.1-c.yaml` for numerical limits. Do not infer limits from graphical scale.
 
+## Waveform geometry (curves and intersections)
+- **Timing Input (CLK):** drawn with dashed segments away from its single transition — dashed means "not specified / don't care" (a standard convention), not an additional real transition. The one solid rising crossing through `V_M` is the reference edge for both `tsu` and `th`.
+- **Data Input:** two crossings of `V_M` — falls before the CLK reference edge (marks the start of `tsu`) and rises after it (marks the end of `th`).
+- `tsu` = time from the Data falling crossing to the CLK reference-edge crossing.
+- `th` = time from the CLK reference-edge crossing to the Data rising crossing.
+
+As drawn, Data is held **low** across the CLK edge (it falls before, rises after), so this specific drawing illustrates the "Data low" `tsu` row. A mirrored drawing (Data rising before the edge, falling after) would illustrate the "Data high" `tsu` row. Choose the table row that matches the logic level Data actually holds across the edge being analyzed — not the direction of a single transition taken in isolation.
+
 ## Parameter definitions
 - `tsu`: setup time before CLK rising edge.
 - `th`: hold time for data after CLK rising edge.
@@ -46,7 +54,7 @@ The same limits are given for TA = -40°C to +125°C.
 ## Interpretation rules
 1. Identify the CLK rising edge as the reference event.
 2. `tsu` is measured before that edge; `th` is measured after it.
-3. Select the data-high or data-low `tsu` row according to the waveform state.
+3. Select the data-high or data-low `tsu` row according to the logic level Data holds across the CLK edge (see "Waveform geometry" above), not the direction of an isolated transition.
 4. Use the YAML/table values for numerical limits.
 5. Do not confuse setup/hold timing with propagation delay.
 6. Not every parameter or waveform is applicable to all devices.

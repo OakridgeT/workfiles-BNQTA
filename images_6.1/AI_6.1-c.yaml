@@ -1,4 +1,4 @@
-schema_version: "1.1"
+schema_version: "1.2"
 ai_orientation:
   purpose: "Machine-readable interpretation of Figure 6.1-c."
   source_markdown: "Tables_related.md"
@@ -13,6 +13,33 @@ visual_interpretation:
 parameter_definitions:
   tsu: "Setup time before CLK rising edge."
   th: "Hold time for data after CLK rising edge."
+waveform_geometry:
+  rows:
+    - name: "Timing Input (CLK)"
+      rails: {high: "V_I", low: "0 V"}
+      notation: "Segments away from the drawn transition are dashed, meaning 'not specified / don't care' — a standard timing-diagram convention. Only the single drawn transition is the defined reference edge; dashed segments must not be read as additional real transitions."
+      transitions:
+        - order: 1
+          direction: "rising"
+          crossing: "V_M"
+          role: "reference edge for both tsu and th"
+    - name: "Data Input"
+      rails: {high: "V_I", low: "0 V"}
+      transitions:
+        - order: 1
+          direction: "falling"
+          crossing: "V_M"
+          note: "Occurs before the CLK reference edge; marks the start of tsu."
+        - order: 2
+          direction: "rising"
+          crossing: "V_M"
+          note: "Occurs after the CLK reference edge; marks the end of th."
+  intervals:
+    - label: "tsu"
+      measured_between: ["Data Input transition 1 crossing", "Timing Input reference-edge crossing"]
+    - label: "th"
+      measured_between: ["Timing Input reference-edge crossing", "Data Input transition 2 crossing"]
+  data_state_at_capture: "As drawn, Data is LOW (0 V) throughout the interval spanned by tsu and th (it falls before the CLK edge and rises after it) — this specific drawing illustrates the 'Data low' row of tsu in the requirements table. A mirrored drawing (Data rising before the edge, falling after) would illustrate the 'Data high' tsu row. Select the table row matching the actual logic level Data holds across the CLK edge being analyzed, not the direction of any single transition taken in isolation."
 requirements:
   temperature_ranges: ["-40°C to +85°C", "-40°C to +125°C"]
   tsu_data_high:

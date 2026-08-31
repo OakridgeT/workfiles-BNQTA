@@ -1,4 +1,4 @@
-schema_version: "1.1"
+schema_version: "1.2"
 ai_orientation:
   purpose: "Machine-readable interpretation of Figure 6.1-a."
   source_markdown: "Tables_related.md"
@@ -11,6 +11,23 @@ figure:
 visual_interpretation:
   purpose: "Shows the high or low pulse duration of CLK."
   measure: "Pulse width of CLK at the applicable voltage reference level."
+waveform_geometry:
+  rows:
+    - name: "Input"
+      rails: {high: "V_I", low: "0 V"}
+      transitions:
+        - order: 1
+          direction: "falling"
+          crossing: "V_M"
+          note: "First V_M crossing; signal goes from V_I to 0 V."
+        - order: 2
+          direction: "rising"
+          crossing: "V_M"
+          note: "Second V_M crossing; signal returns from 0 V to V_I."
+  intervals:
+    - label: "tw"
+      measured_between: ["transition 1 crossing", "transition 2 crossing"]
+      note: "tw is the horizontal distance between the two V_M crossings. As drawn, the interval spans the LOW portion of the pulse (tw for CLK low). The identical measurement method — the time between two consecutive V_M crossings — applies symmetrically to measure the HIGH portion of the pulse (tw for CLK high, a rising crossing followed by a falling crossing), which is not separately illustrated in this figure."
 associated_requirements:
   parameter: "tw"
   definition: "Pulse duration, CLK high or low"

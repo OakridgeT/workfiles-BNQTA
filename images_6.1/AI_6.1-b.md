@@ -12,6 +12,14 @@ This waveform defines propagation delay from the relevant CLK input transition t
 ## AI visual-grounding instructions
 Use the PNG to identify CLK, Q, transition polarity, reference voltage crossings, and timing markers. Use `AI_6.1-b.yaml` for numerical specifications. Do not derive timing limits from image scale.
 
+## Waveform geometry (curves and intersections)
+The figure has three rows, all crossing `V_M`:
+- **Input:** two crossings — falls (V_I → 0 V) at crossing 1, rises (0 V → V_I) at crossing 2.
+- **Output, upper row (inverting output):** rises (V_OL → V_OH) at the point aligned with Input crossing 1 — this rising output edge is `tPLH` — then falls (V_OH → V_OL) at the point aligned with Input crossing 2 — this falling output edge is `tPHL`.
+- **Output, lower row (noninverting output):** falls (V_OH → V_OL) aligned with Input crossing 1 — this is `tPHL` — then rises (V_OL → V_OH) aligned with Input crossing 2 — this is `tPLH`.
+
+Both output rows react to the **same** two Input transitions but move in **opposite** directions from each other. The label to use is decided by the direction of the specific output edge being measured (rising → `tPLH`, falling → `tPHL`), not by which row it is or by the Input's own direction.
+
 ## Parameter mapping
 - `tPLH` / `tPHL` = `tpd`.
 - `tPLH` represents a low-to-high output transition.
