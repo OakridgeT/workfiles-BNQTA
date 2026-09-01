@@ -1,0 +1,33 @@
+schema_version: "1.1"
+ai_orientation:
+  purpose: "Machine-readable interpretation of Figure 7, OE disable timing (OE mode only)."
+  source_markdown: "Context.md"
+  source_image: "fig7.png"
+figure:
+  id: "fig7"
+  title: "OE Disable Timing (OE Mode Only)"
+  type: "timing_waveform"
+  timing_parameter: "T_oe"
+visual_interpretation:
+  purpose: "Shows the OE pin voltage falling through its 50% Vdd reference level, and the CLK output transitioning from active clock pulses to high impedance (HZ) after T_oe."
+  reference_threshold: "50% Vdd on OE Voltage"
+  output_states: ["active CLK output while OE is high", "HZ (high impedance) after T_oe"]
+applicability: "OE (Output Enable) mode only; not applicable when pin 1 is configured as ST or NC."
+associated_requirements:
+  parameter: "T_oe"
+  definition: "Enable/Disable Time — disable direction (time to put the output in High Z mode)"
+  max: 130
+  unit: "ns"
+  condition: "f = 110 MHz. For other frequencies, T_oe = 100 ns + 3 * cycles"
+related_figures:
+  - "fig4"
+  - "fig5"
+  - "fig6"
+measurement_rules:
+  - "Use the PNG to identify the active CLK pulses before the transition, the OE Voltage falling edge, the 50% Vdd crossing, and the CLK Output transition into the hatched HZ region."
+  - "T_oe (disable direction) is measured from the time OE crosses the 50% Vdd threshold to the CLK output entering the high-impedance state."
+  - "The 130 ns maximum applies at f = 110 MHz; for other frequencies use T_oe = 100 ns + 3 cycles of the operating frequency."
+  - "This figure applies only to devices operating in OE (Output Enable) mode; it complements Figure 6 (OE enable)."
+  - "Do not confuse this disable-direction T_oe with T_start (Figure 4) or T_resume (Figure 5)."
+source_integrity:
+  verified_by_user: true

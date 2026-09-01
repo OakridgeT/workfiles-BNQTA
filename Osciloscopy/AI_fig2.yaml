@@ -1,0 +1,54 @@
+schema_version: "1.1"
+ai_orientation:
+  purpose: "Machine-readable interpretation of Figure 2, the oscillator output load test circuit."
+  source_markdown: "Context.md"
+  source_image: "fig2.png"
+figure:
+  id: "fig2"
+  title: "Test Circuit"
+  type: "test_circuit"
+  device: "SiT8924"
+visual_interpretation:
+  purpose: "Defines the external circuit used to measure the oscillator output (Vout) at the Test Point, including power-supply decoupling, output load capacitance, and the pull-up used on pin 1 when OE/ST/NC is not externally driven."
+  elements:
+    - name: "Power Supply"
+      role: "Provides Vdd to the device and to the 0.1 uF decoupling capacitor."
+    - name: "0.1 uF capacitor"
+      role: "Decoupling capacitor between Vdd and GND, placed close to the device."
+      requirement_ref: "Table 2, note [4]"
+    - name: "Device under test (4-pin package)"
+      pins:
+        pin1: "OE/ST/NC — pulled up through 1 kΩ to Vdd (OE/NC Function) in this circuit"
+        pin2: "GND"
+        pin3: "OUT — connects to Vout and the Test Point"
+        pin4: "Vdd"
+    - name: "1 kOhm resistor"
+      role: "Pull-up from Vdd to pin 1 (OE/NC Function), used when pin 1 is not actively driven."
+      requirement_ref: "Table 2, note [3]: pull-up of 10 kΩ or less recommended if pin 1 is not externally driven."
+    - name: "15 pF capacitor"
+      role: "Output load capacitance at the Test Point, including probe and fixture capacitance."
+      requirement_ref: "Table 1, all electrical characteristics specified with a 15 pF output load."
+associated_requirements:
+  output_load_capacitance:
+    value: 15
+    unit: "pF"
+    note: "Includes probe and fixture capacitance."
+  decoupling_capacitor:
+    min_value: 0.1
+    unit: "uF"
+    note: "Required between Vdd and GND (Table 2, note [4])."
+  pin1_pullup:
+    max_recommended: 10
+    shown_value: 1
+    unit: "kOhm"
+    note: "Recommended pull-up if pin 1 (OE/ST/NC) is not externally driven; the circuit shown uses 1 kΩ."
+related_figures:
+  - "fig3"
+measurement_rules:
+  - "Use the PNG for circuit topology, pin numbering, and component placement."
+  - "Vout is measured at the Test Point shown at pin 3 (OUT)."
+  - "The 15 pF load applies to all electrical specifications in Table 1 unless otherwise stated."
+  - "This circuit is the reference load condition for the waveform and duty-cycle measurements defined in Figure 3."
+  - "Do not infer numerical component values from pixel geometry; use the labeled values in the PNG and this file."
+source_integrity:
+  verified_by_user: true

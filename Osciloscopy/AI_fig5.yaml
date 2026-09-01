@@ -1,0 +1,32 @@
+schema_version: "1.1"
+ai_orientation:
+  purpose: "Machine-readable interpretation of Figure 5, the resume timing from Standby (ST mode only)."
+  source_markdown: "Context.md"
+  source_image: "fig5.png"
+figure:
+  id: "fig5"
+  title: "Standby Resume Timing ( ST Mode Only)"
+  type: "timing_waveform"
+  timing_parameter: "T_resume"
+visual_interpretation:
+  purpose: "Shows the ST pin voltage rising to its 50% Vdd reference level, and the CLK output transitioning from high impedance (HZ) to active output after T_resume."
+  reference_threshold: "50% Vdd on ST Voltage"
+  output_states: ["HZ (high impedance) during Standby", "active CLK output after T_resume"]
+applicability: "ST (Standby) mode only; not applicable when pin 1 is configured as OE or NC."
+associated_requirements:
+  parameter: "T_resume"
+  definition: "Resume Time — time to resume from Standby (ST)"
+  max: 5
+  unit: "ms"
+  condition: "Measured from the time the ST pin crosses the 50% threshold"
+related_figures:
+  - "fig4"
+  - "fig6"
+  - "fig7"
+measurement_rules:
+  - "Use the PNG to identify the ST Voltage ramp, the 50% Vdd crossing, and the HZ-to-active transition on CLK Output."
+  - "T_resume is measured from the time the ST pin crosses the 50% Vdd threshold to the first valid clock edge, per Table 1."
+  - "This figure applies only to devices operating in ST (Standby) mode; devices in OE or NC mode do not use T_resume."
+  - "Do not confuse T_resume with T_start (Figure 4, power-up) or T_oe (Figures 6-7, OE enable/disable)."
+source_integrity:
+  verified_by_user: true

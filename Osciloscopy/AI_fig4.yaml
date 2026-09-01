@@ -1,0 +1,36 @@
+schema_version: "1.1"
+ai_orientation:
+  purpose: "Machine-readable interpretation of Figure 4, the power-up startup timing in OE/ST mode."
+  source_markdown: "Context.md"
+  source_image: "fig4.png"
+figure:
+  id: "fig4"
+  title: "Startup Timing (OE/ ST Mode)"
+  type: "timing_waveform"
+  timing_parameter: "T_start"
+visual_interpretation:
+  purpose: "Shows Pin 4 (Vdd) ramping up to its 90% Vdd reference level, and the CLK output transitioning from high impedance (HZ) to a clean, glitch-free clock output after T_start."
+  reference_threshold: "90% Vdd on Pin 4 Voltage"
+  output_states: ["HZ (high impedance) before startup completes", "active CLK output after T_start"]
+  annotation: "No Glitch during startup"
+associated_requirements:
+  parameter: "T_start"
+  definition: "Startup Time — time to start from power-off"
+  max: 5.5
+  unit: "ms"
+  condition: "Measured from the time Vdd reaches its rated minimum value"
+device_note:
+  text: "SiT8924 has \"no runt\" pulses and \"no glitch\" output during startup or resume."
+  note_ref: "[9]"
+related_figures:
+  - "fig5"
+  - "fig6"
+  - "fig7"
+measurement_rules:
+  - "Use the PNG to identify the Vdd ramp, the 90% Vdd crossing, and the HZ-to-active transition on CLK Output."
+  - "T_start is measured from the time Vdd reaches its rated minimum value to the first valid clock edge, per Table 1."
+  - "This timing applies to devices configured in OE mode or ST (Standby) mode on pin 1."
+  - "Do not confuse T_start (power-up) with T_resume (Figure 5, resume from Standby) or T_oe (Figures 6-7, OE enable/disable)."
+  - "The output shows no runt pulses or glitches during startup, per note [9]."
+source_integrity:
+  verified_by_user: true
