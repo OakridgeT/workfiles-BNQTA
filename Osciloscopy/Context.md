@@ -8,7 +8,7 @@
 
 **Figure 3. Waveform**
 
-![Figure 3. Waveform](/fig3.png)
+![Figure 3. Waveform](fig3.png)
 
 > Note for Figure 2 y 3
   [8] Duty Cycle is computed as Duty Cycle = TH/Period.
@@ -18,7 +18,7 @@
 
 **Figure 4. Startup Timing (OE/ ST Mode)[9]**
 
-![Figure 4. Startup Timing (OE/ ST Mode)](/fig4.png)
+![Figure 4. Startup Timing (OE/ ST Mode)](fig4.png)
 
 > Note for Figure 4. Startup Timing (OE/ ST Mode):
   [9] SiT8924 has “no runt” pulses and “no glitch” output during startup or resume.
@@ -26,17 +26,17 @@
 
 **Figure 5. Standby Resume Timing ( ST Mode Only)**
 
-![Figure 5. Standby Resume Timing ( ST Mode Only)](/fig5.png)
+![Figure 5. Standby Resume Timing ( ST Mode Only)](fig5.png)
 
 
 **Figure 6. OE Enable Timing (OE Mode Only)**
 
-![Figure 6. OE Enable Timing (OE Mode Only)](/fig6.png)
+![Figure 6. OE Enable Timing (OE Mode Only)](fig6.png)
 
 
 **Figure 7. OE Disable Timing (OE Mode Only)**
 
-![Figure 7. OE Disable Timing (OE Mode Only)](/fig7.png)
+![Figure 7. OE Disable Timing (OE Mode Only)](fig7.png)
 
 
 ## Tables related with figures below 
