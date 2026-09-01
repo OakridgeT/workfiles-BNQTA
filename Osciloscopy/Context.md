@@ -3,7 +3,7 @@
 
 **Figure 2. Test Circuit[8]**
 
-![Figure 2. Test Circuit](/fig2.png)
+![Figure 2. Test Circuit](fig2.png)
 
 
 **Figure 3. Waveform**
